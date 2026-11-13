@@ -1,0 +1,7 @@
+-- Create a PRIVATE bucket named site-media in Supabase Storage first.
+-- Restrict object writes to the owner UUID. Replace placeholder before running.
+-- insert into storage.buckets (id, name, public) values ('site-media','site-media',false) on conflict (id) do nothing;
+-- create policy "Owner can read site media" on storage.objects for select to authenticated using (bucket_id = 'site-media' and auth.uid() = 'YOUR_OWNER_AUTH_USER_UUID'::uuid);
+-- create policy "Owner can upload site media" on storage.objects for insert to authenticated with check (bucket_id = 'site-media' and auth.uid() = 'YOUR_OWNER_AUTH_USER_UUID'::uuid);
+-- create policy "Owner can update site media" on storage.objects for update to authenticated using (bucket_id = 'site-media' and auth.uid() = 'YOUR_OWNER_AUTH_USER_UUID'::uuid) with check (bucket_id = 'site-media' and auth.uid() = 'YOUR_OWNER_AUTH_USER_UUID'::uuid);
+-- create policy "Owner can delete site media" on storage.objects for delete to authenticated using (bucket_id = 'site-media' and auth.uid() = 'YOUR_OWNER_AUTH_USER_UUID'::uuid);

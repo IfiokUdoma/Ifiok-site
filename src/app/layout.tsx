@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import "./globals.css"; import Link from "next/link";
+export const metadata:Metadata={title:{default:"Ifiok Udoma — Think. Teach. Build.",template:"%s | Ifiok Udoma"},description:"Systems thinking, Christ-centered teaching, software products and engineering systems.",metadataBase:new URL(process.env.NEXT_PUBLIC_SITE_URL||"http://localhost:3000"),openGraph:{type:"website",title:"Ifiok Udoma — Think. Teach. Build.",description:"Thinking deeply. Teaching truth. Building solutions."}};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}
